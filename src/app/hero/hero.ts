@@ -14,12 +14,19 @@ export class Hero {
   protected readonly i18n = inject(I18n);
   protected readonly copies = LANGUAGES.map(({ code }) => TRANSLATIONS[code].hero);
   private readonly canvas = viewChild.required<ElementRef<HTMLCanvasElement>>('critters');
+  private readonly top = viewChild.required<ElementRef<HTMLElement>>('top');
   private readonly intro = viewChild.required<ElementRef<HTMLElement>>('intro');
 
   constructor() {
     const destroyRef = inject(DestroyRef);
     afterNextRender(() =>
-      destroyRef.onDestroy(startCritters(this.canvas().nativeElement, this.intro().nativeElement)),
+      destroyRef.onDestroy(
+        startCritters(
+          this.canvas().nativeElement,
+          this.top().nativeElement,
+          this.intro().nativeElement,
+        ),
+      ),
     );
   }
 }

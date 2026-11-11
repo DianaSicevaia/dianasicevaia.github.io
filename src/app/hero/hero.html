@@ -3,12 +3,21 @@
   <canvas class="hero__critters" #critters aria-hidden="true"></canvas>
 
   <div class="container hero__inner">
-    <div class="hero__top">
+    <div class="hero__top" #top>
       <p class="hero__eyebrow">
         <span>Diana Sicevaia</span>
         <span>{{ t.eyebrow }}</span>
       </p>
-      <app-language-switcher />
+      <div class="hero__actions">
+        <app-language-switcher />
+        <a
+          class="hero__cv"
+          href="Diana-Sicevaia-CV.pdf"
+          target="_blank"
+          [attr.aria-label]="i18n.t().contacts.cv + ' (PDF), ' + i18n.t().works.newWindow"
+          >{{ i18n.t().contacts.cv }} · PDF <span aria-hidden="true">↗</span></a
+        >
+      </div>
     </div>
 
     <div class="hero__intro" #intro>

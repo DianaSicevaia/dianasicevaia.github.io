@@ -40,7 +40,14 @@ export interface Translations {
     };
   };
   carousel: { enlarge: string; lightbox: string; close: string; previous: string; next: string };
-  contacts: { title: string; email: string; note: string };
+  contacts: {
+    title: string;
+    email: string;
+    note: string;
+    toTop: string;
+    cv: string;
+    cvDownload: string;
+  };
 }
 
 export const TRANSLATIONS: Record<Language, Translations> = {
@@ -149,6 +156,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     contacts: {
       title: 'Let’s talk about your project',
       email: 'Email',
+      toTop: 'Back to top',
+      cv: 'CV',
+      cvDownload: 'Open PDF',
       note: 'Moldova, working remotely. Languages: Russian, Romanian, English, Chinese (HSK 4).',
     },
   },
@@ -256,6 +266,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     contacts: {
       title: 'Обговорити задачу',
       email: 'Пошта',
+      toTop: 'Нагору',
+      cv: 'Резюме',
+      cvDownload: 'Відкрити PDF',
       note: 'Молдова, працюю віддалено. Мови: російська, румунська, англійська, китайська (HSK 4).',
     },
   },
@@ -364,6 +377,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     contacts: {
       title: 'Hai să discutăm proiectul',
       email: 'E-mail',
+      toTop: 'Înapoi sus',
+      cv: 'CV',
+      cvDownload: 'Deschide PDF',
       note: 'Moldova, lucrez la distanță. Limbi: rusă, română, engleză, chineză (HSK 4).',
     },
   },
@@ -472,6 +488,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     contacts: {
       title: 'Обсудить задачу',
       email: 'Почта',
+      toTop: 'Наверх',
+      cv: 'Резюме',
+      cvDownload: 'Открыть PDF',
       note: 'Молдова, работаю удалённо. Языки: русский, румынский, английский, китайский (HSK 4).',
     },
   },

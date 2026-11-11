@@ -7,11 +7,24 @@
       @for (link of links(); track link.href) {
         <li class="contact">
           <span class="contact__label">{{ link.label }}</span>
-          <a class="contact__link" [href]="link.href">{{ link.text }}</a>
+          @if (link.newWindow) {
+            <a
+              class="contact__link"
+              [href]="link.href"
+              target="_blank"
+              [attr.aria-label]="link.text + ', ' + i18n.t().works.newWindow"
+              >{{ link.text }} <span aria-hidden="true">↗</span></a
+            >
+          } @else {
+            <a class="contact__link" [href]="link.href">{{ link.text }}</a>
+          }
         </li>
       }
     </ul>
 
-    <p class="contacts__note">{{ t.note }}</p>
+    <div class="contacts__bottom">
+      <p class="contacts__note">{{ t.note }}</p>
+      <a class="contacts__top" href="#top">{{ t.toTop }} <span aria-hidden="true">↑</span></a>
+    </div>
   </div>
 </footer>

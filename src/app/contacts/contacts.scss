@@ -35,9 +35,39 @@
   text-underline-offset: 0.2em;
 }
 
+.contacts__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 2rem;
+  margin-top: 1.5rem;
+}
+
 .contacts__note {
   max-width: 34rem;
-  margin-top: 1.5rem;
+}
+
+.contacts__top {
+  padding-block: 0.625rem;
+  border-bottom: 2px solid currentcolor;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contacts__top span {
+  display: inline-block;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .contacts__top span {
+    transition: transform 0.2s ease;
+  }
+
+  .contacts__top:hover span {
+    transform: translateY(-0.2em);
+  }
 }
 
 @media (min-width: 60rem) {

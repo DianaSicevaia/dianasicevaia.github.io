@@ -7,7 +7,6 @@ const SCARE_FORCE = 2600;
 const HOME_FORCE = 6;
 const DAMPING = 0.92;
 const AREA_PER_CRITTER = 32000;
-const HABITAT_TOP = 76;
 const EAR_HEIGHT = 1.25;
 const TEXT_GAP = 16;
 const TAP_SCARE_MS = 700;
@@ -28,10 +27,14 @@ interface Critter {
 const random = (min: number, max: number) => min + Math.random() * (max - min);
 
 /**
- * Draws the hero background animation above `text`, so critters never cover it,
+ * Draws the hero background animation between `header` and `text`, so critters never cover them,
  * and returns a function that stops it.
  */
-export function startCritters(canvas: HTMLCanvasElement, text: HTMLElement): () => void {
+export function startCritters(
+  canvas: HTMLCanvasElement,
+  header: HTMLElement,
+  text: HTMLElement,
+): () => void {
   const ctx = canvas.getContext('2d');
   if (!ctx) {
     return () => {};
@@ -41,6 +44,7 @@ export function startCritters(canvas: HTMLCanvasElement, text: HTMLElement): () 
   let critters: Critter[] = [];
   let width = 0;
   let height = 0;
+  let habitatTop = 0;
   let habitatBottom = 0;
   let pointer: { x: number; y: number } | null = null;
   let tapTimer = 0;
@@ -49,7 +53,7 @@ export function startCritters(canvas: HTMLCanvasElement, text: HTMLElement): () 
   let inView = true;
 
   function populate() {
-    const habitatHeight = Math.max(habitatBottom - HABITAT_TOP, 1);
+    const habitatHeight = Math.max(habitatBottom - habitatTop, 1);
     const count = Math.min(Math.max(Math.round((width * habitatHeight) / AREA_PER_CRITTER), 3), 18);
     const columns = Math.ceil(Math.sqrt((count * width) / habitatHeight));
     const rows = Math.ceil(count / columns);
@@ -61,8 +65,8 @@ export function startCritters(canvas: HTMLCanvasElement, text: HTMLElement): () 
       const homeX = ((index % columns) + random(0.25, 0.75)) * cellWidth;
       const homeY = Math.min(
         Math.max(
-          HABITAT_TOP + (Math.floor(index / columns) + random(0.25, 0.75)) * cellHeight,
-          HABITAT_TOP + radius * EAR_HEIGHT,
+          habitatTop + (Math.floor(index / columns) + random(0.25, 0.75)) * cellHeight,
+          habitatTop + radius * EAR_HEIGHT,
         ),
         habitatBottom - radius,
       );
@@ -86,6 +90,7 @@ export function startCritters(canvas: HTMLCanvasElement, text: HTMLElement): () 
     const scale = Math.min(devicePixelRatio, 2);
     width = rect.width;
     height = rect.height;
+    habitatTop = header.getBoundingClientRect().bottom - rect.top + TEXT_GAP;
     habitatBottom = text.getBoundingClientRect().top - rect.top - TEXT_GAP;
     canvas.width = Math.round(width * scale);
     canvas.height = Math.round(height * scale);
@@ -314,6 +319,7 @@ export function startCritters(canvas: HTMLCanvasElement, text: HTMLElement): () 
   });
 
   resizeObserver.observe(canvas);
+  resizeObserver.observe(header);
   resizeObserver.observe(text);
   viewObserver.observe(canvas);
   document.addEventListener('visibilitychange', schedule);

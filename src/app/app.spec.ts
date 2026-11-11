@@ -107,5 +107,10 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('a[href="https://t.me/ErgoProxyDi"]')).toBeTruthy();
     expect(compiled.querySelector('a[href="mailto:sicevaiadiana@gmail.com"]')).toBeTruthy();
+    expect(compiled.querySelector('a[href="https://github.com/DianaSicevaia"]')).toBeTruthy();
+    expect(compiled.querySelector('a[href="#top"]')?.textContent).toContain('Back to top');
+    const cvLinks = compiled.querySelectorAll<HTMLAnchorElement>('a[href="Diana-Sicevaia-CV.pdf"]');
+    expect(cvLinks.length).toBe(2);
+    cvLinks.forEach((link) => expect(link.target).toBe('_blank'));
   });
 });
