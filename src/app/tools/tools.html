@@ -1,0 +1,18 @@
+<section class="tools" aria-labelledby="tools-title">
+  <div class="container">
+    <h2 class="section-title" id="tools-title">{{ i18n.t().tools.title }}</h2>
+
+    <div class="tools__groups">
+      @for (group of groups(); track $index) {
+        <div class="tool-group">
+          <h3 class="tool-group__title">{{ group.title }}</h3>
+          <ul class="tool-group__list">
+            @for (item of group.items; track $index) {
+              <li><span class="tool-group__item">{{ item }}</span></li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.contacts {
+  padding-block: var(--section-space);
+  background: var(--violet);
+  color: var(--paper);
+}
+
+.contacts__links {
+  margin-top: clamp(2rem, 6vw, 4rem);
+}
+
+.contact {
+  padding-block: 1rem;
+  border-top: 1px solid var(--line-on-ink);
+}
+
+.contact__label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact__link {
+  display: inline-block;
+  padding-block: 0.375rem;
+  color: inherit;
+  font-size: clamp(1.125rem, 4vw, 1.75rem);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-underline-offset: 0.2em;
+}
+
+.contacts__note {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 60rem) {
+  .contact {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 2rem;
+    align-items: baseline;
+  }
+}

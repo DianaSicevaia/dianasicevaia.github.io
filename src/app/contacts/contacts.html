@@ -1,0 +1,17 @@
+@let t = i18n.t().contacts;
+<footer class="contacts">
+  <div class="container">
+    <h2 class="section-title">{{ t.title }}</h2>
+
+    <ul class="contacts__links">
+      @for (link of links(); track link.href) {
+        <li class="contact">
+          <span class="contact__label">{{ link.label }}</span>
+          <a class="contact__link" [href]="link.href">{{ link.text }}</a>
+        </li>
+      }
+    </ul>
+
+    <p class="contacts__note">{{ t.note }}</p>
+  </div>
+</footer>

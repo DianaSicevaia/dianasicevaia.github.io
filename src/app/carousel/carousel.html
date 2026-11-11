@@ -1,0 +1,68 @@
+@let t = i18n.t().carousel;
+<div
+  class="carousel__track"
+  #track
+  role="group"
+  tabindex="0"
+  [attr.aria-label]="label()"
+  (scroll)="onScroll()"
+>
+  @for (image of images(); track image.src; let index = $index) {
+    <button
+      class="carousel__open"
+      type="button"
+      [attr.aria-label]="t.enlarge + ': ' + image.alt"
+      (click)="enlarge(index)"
+    >
+      <img class="carousel__image" [src]="image.src" alt="" loading="lazy" />
+    </button>
+  }
+</div>
+
+<dialog
+  class="lightbox"
+  #lightbox
+  [attr.aria-label]="t.lightbox"
+  (click)="onLightboxClick($event)"
+  (keydown)="onLightboxKeydown($event)"
+  (close)="onLightboxClose()"
+>
+  <button class="lightbox__close" type="button" [attr.aria-label]="t.close">
+    <span aria-hidden="true">×</span>
+  </button>
+  @if (enlarged(); as image) {
+    <div class="lightbox__scroller" #scroller>
+      <!-- Keyed by src so the entrance animation replays on every picture. -->
+      @for (shown of [image]; track shown.src) {
+        <img class="lightbox__image" [src]="shown.src" [alt]="shown.alt" />
+      }
+    </div>
+  }
+  @if (images().length > 1) {
+    <div class="lightbox__nav">
+      <button class="carousel__button" type="button" [attr.aria-label]="t.previous" (click)="step(-1)">
+        <span aria-hidden="true">←</span>
+      </button>
+      <span class="lightbox__counter" aria-live="polite">
+        {{ (enlargedIndex() ?? 0) + 1 }} / {{ images().length }}
+      </span>
+      <button class="carousel__button" type="button" [attr.aria-label]="t.next" (click)="step(1)">
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  }
+</dialog>
+
+@if (images().length > 1) {
+  <div class="carousel__controls">
+    <button class="carousel__button" type="button" [attr.aria-label]="t.previous" (click)="go(-1)">
+      <span aria-hidden="true">←</span>
+    </button>
+    <span class="carousel__counter" aria-live="polite">
+      {{ current() + 1 }} / {{ images().length }}
+    </span>
+    <button class="carousel__button" type="button" [attr.aria-label]="t.next" (click)="go(1)">
+      <span aria-hidden="true">→</span>
+    </button>
+  </div>
+}

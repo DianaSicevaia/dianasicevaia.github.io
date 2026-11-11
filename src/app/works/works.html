@@ -1,0 +1,31 @@
+@let t = i18n.t().works;
+<section class="works" aria-labelledby="works-title">
+  <div class="container">
+    <h2 class="section-title" id="works-title">{{ t.title }}</h2>
+
+    <ul class="works__list">
+      @for (work of works(); track work.title) {
+        <li class="work">
+          <div>
+            <h3 class="work__title">{{ work.title }}</h3>
+            <p class="work__description">{{ work.description }}</p>
+            <ul class="work__stack" [attr.aria-label]="t.stack">
+              @for (tech of work.stack; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+            <a
+              class="work__link"
+              [href]="work.demoUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.aria-label]="t.demo + ': ' + work.title + ', ' + t.newWindow"
+              >{{ t.demo }} <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <app-carousel [images]="work.images" [label]="t.screenshots + ': ' + work.title" />
+        </li>
+      }
+    </ul>
+  </div>
+</section>

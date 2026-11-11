@@ -1,0 +1,16 @@
+@let t = i18n.t().services;
+<section class="services" id="services" aria-labelledby="services-title">
+  <div class="container">
+    <h2 class="section-title" id="services-title">{{ t.title }}</h2>
+
+    <ol class="services__list">
+      @for (service of t.items; track $index; let index = $index) {
+        <li class="service">
+          <span class="service__number" aria-hidden="true">{{ index + 1 | number: '2.0-0' }}</span>
+          <h3 class="service__title">{{ service.title }}</h3>
+          <p class="service__description">{{ service.description }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

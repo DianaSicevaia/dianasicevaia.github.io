@@ -1,0 +1,112 @@
+:host {
+  display: block;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--violet);
+  color: var(--paper);
+}
+
+.hero__critters {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12rem;
+  min-height: 100svh;
+  padding-block: 1.25rem 2.5rem;
+}
+
+.hero__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.hero__eyebrow span {
+  display: block;
+}
+
+.hero__eyebrow {
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// Invisible copies in every language share a cell with the real text, so the block
+// is always as tall as the longest translation and switching language can't resize the hero.
+.hero__stack {
+  display: grid;
+}
+
+.hero__stack > * {
+  grid-area: 1 / 1;
+}
+
+.hero__sizer {
+  visibility: hidden;
+}
+
+.hero__stack > h1 {
+  align-self: end;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 7.8vw, 5rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.hero__nowrap {
+  white-space: nowrap;
+}
+
+.hero__text {
+  max-width: 38rem;
+  margin-top: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.hero__link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding-block: 0.625rem;
+  border-bottom: 2px solid currentcolor;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero__link span {
+  display: inline-block;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero__link span {
+    transition: transform 0.2s ease;
+  }
+
+  .hero__link:hover span {
+    transform: translateY(0.2em);
+  }
+}
+
+@media (min-width: 60rem) {
+  .hero__inner {
+    padding-block: 2rem 4rem;
+  }
+}

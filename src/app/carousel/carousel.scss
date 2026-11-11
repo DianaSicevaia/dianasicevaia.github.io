@@ -1,0 +1,173 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.carousel__track {
+  display: flex;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__open {
+  flex: 0 0 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  scroll-snap-align: start;
+}
+
+.carousel__open:focus-visible {
+  outline-offset: -4px;
+}
+
+.carousel__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.lightbox {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lightbox[open] {
+  display: flex;
+}
+
+.lightbox__scroller {
+  flex: 1;
+  display: flex;
+  min-width: 0;
+  overflow: auto;
+  padding: 4rem var(--gutter);
+}
+
+.lightbox__image {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100svh - 8rem);
+  margin: auto;
+}
+
+// A wide screenshot fitted to a portrait phone would stay tiny, so it is panned instead.
+@media (orientation: portrait) and (max-width: 40rem) {
+  .lightbox__image {
+    width: 220vw;
+    max-width: none;
+    max-height: none;
+  }
+}
+
+.lightbox__close {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line-on-ink);
+  background: var(--ink);
+  color: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox__nav {
+  position: fixed;
+  bottom: 0.75rem;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transform: translateX(-50%);
+}
+
+.lightbox__nav .carousel__button {
+  border-color: var(--line-on-ink);
+  background: var(--ink);
+}
+
+.lightbox__counter {
+  min-width: 4.5rem;
+  color: var(--muted-on-ink);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.carousel__counter {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.carousel__button {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line);
+  background: none;
+  color: inherit;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .carousel__button:hover {
+    border-color: var(--violet-bright);
+    background: var(--violet-bright);
+    color: var(--paper);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .carousel__track {
+    scroll-behavior: smooth;
+  }
+
+  .carousel__button {
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .lightbox__image {
+    animation: lightbox-in 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes lightbox-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+  }
+}
