@@ -1,11 +1,11 @@
 @let t = i18n.t().contacts;
 <footer class="contacts">
   <div class="container">
-    <h2 class="section-title">{{ t.title }}</h2>
+    <h2 class="section-title" appReveal>{{ t.title }}</h2>
 
     <ul class="contacts__links">
       @for (link of links(); track link.href) {
-        <li class="contact">
+        <li class="contact" appReveal [revealDelay]="$index * 80">
           <span class="contact__label">{{ link.label }}</span>
           @if (link.newWindow) {
             <a
@@ -22,7 +22,7 @@
       }
     </ul>
 
-    <div class="contacts__bottom">
+    <div class="contacts__bottom" appReveal>
       <p class="contacts__note">{{ t.note }}</p>
       <a class="contacts__top" href="#top">{{ t.toTop }} <span aria-hidden="true">↑</span></a>
     </div>

@@ -1,10 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { Carousel } from '../carousel/carousel';
 import { I18n } from '../i18n/i18n';
+import { Reveal } from '../reveal/reveal';
 
 @Component({
   selector: 'app-works',
-  imports: [Carousel],
+  imports: [Carousel, Reveal],
   templateUrl: './works.html',
   styleUrl: './works.scss',
 })

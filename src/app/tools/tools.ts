@@ -1,8 +1,10 @@
 import { Component, computed, inject } from '@angular/core';
 import { I18n } from '../i18n/i18n';
+import { Reveal } from '../reveal/reveal';
 
 @Component({
   selector: 'app-tools',
+  imports: [Reveal],
   templateUrl: './tools.html',
   styleUrl: './tools.scss',
 })

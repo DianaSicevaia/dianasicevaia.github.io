@@ -80,3 +80,17 @@ html:has(dialog[open]) {
     scroll-behavior: smooth;
   }
 }
+
+// Scroll reveal: the class is added by the Reveal directive only when motion is allowed.
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.7s ease var(--reveal-delay, 0ms),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}

@@ -1,10 +1,12 @@
 import { Component, computed, inject } from '@angular/core';
 import { I18n } from '../i18n/i18n';
+import { Reveal } from '../reveal/reveal';
 
 @Component({
   selector: 'app-contacts',
+  imports: [Reveal],
   templateUrl: './contacts.html',
-  styleUrl: './contacts.scss'
+  styleUrl: './contacts.scss',
 })
 export class Contacts {
   protected readonly i18n = inject(I18n);

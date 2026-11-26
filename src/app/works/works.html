@@ -1,11 +1,11 @@
 @let t = i18n.t().works;
 <section class="works" aria-labelledby="works-title">
   <div class="container">
-    <h2 class="section-title" id="works-title">{{ t.title }}</h2>
+    <h2 class="section-title" id="works-title" appReveal>{{ t.title }}</h2>
 
     <ul class="works__list">
       @for (work of works(); track work.title) {
-        <li class="work">
+        <li class="work" appReveal>
           <div>
             <h3 class="work__title">{{ work.title }}</h3>
             <p class="work__description">{{ work.description }}</p>

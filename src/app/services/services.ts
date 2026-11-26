@@ -1,10 +1,11 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { I18n } from '../i18n/i18n';
+import { Reveal } from '../reveal/reveal';
 
 @Component({
   selector: 'app-services',
-  imports: [DecimalPipe],
+  imports: [DecimalPipe, Reveal],
   templateUrl: './services.html',
   styleUrl: './services.scss',
 })
