@@ -27,6 +27,12 @@ export interface Translations {
     title: string;
     intro: string;
     marquee: { title: string; description: string; label: string; items: readonly string[] };
+    cards: {
+      title: string;
+      description: string;
+      label: string;
+      items: readonly { title: string; text: string }[];
+    };
   };
   works: {
     title: string;
@@ -130,6 +136,18 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           'Open daily 9:00–21:00',
           '−20% on your first order',
           'Online booking 24/7',
+        ],
+      },
+      cards: {
+        title: 'Service cards',
+        description:
+          'Cards for services, payment or delivery options. On hover, or when you press and hold one on a phone, the card darkens and the icon tilts.',
+        label: 'Sample services',
+        items: [
+          { title: 'Delivery', text: 'Same day across the city' },
+          { title: 'Installments', text: 'From 3 to 12 months' },
+          { title: 'Card payment', text: 'Visa, Mastercard, Apple Pay' },
+          { title: 'Support', text: 'Every day, 9:00–21:00' },
         ],
       },
     },
@@ -258,6 +276,18 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           'Працюємо щодня 9:00–21:00',
           '−20% на перше замовлення',
           'Онлайн-запис 24/7',
+        ],
+      },
+      cards: {
+        title: 'Картки послуг',
+        description:
+          'Картки для послуг, способів оплати чи доставки. При наведенні, а на телефоні при утриманні, картка темніє, а іконка нахиляється.',
+        label: 'Приклади послуг',
+        items: [
+          { title: 'Доставка', text: 'У день замовлення містом' },
+          { title: 'Розстрочка', text: 'Від 3 до 12 місяців' },
+          { title: 'Оплата карткою', text: 'Visa, Mastercard, Apple Pay' },
+          { title: 'Підтримка', text: 'Щодня, 9:00–21:00' },
         ],
       },
     },
@@ -389,6 +419,18 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           'Programare online 24/7',
         ],
       },
+      cards: {
+        title: 'Carduri de servicii',
+        description:
+          'Carduri pentru servicii, metode de plată sau livrare. La trecerea cursorului sau la apăsare lungă pe telefon, cardul se întunecă, iar pictograma se înclină.',
+        label: 'Exemple de servicii',
+        items: [
+          { title: 'Livrare', text: 'În aceeași zi, prin oraș' },
+          { title: 'Rate', text: 'De la 3 la 12 luni' },
+          { title: 'Plata cu cardul', text: 'Visa, Mastercard, Apple Pay' },
+          { title: 'Suport', text: 'Zilnic, 9:00–21:00' },
+        ],
+      },
     },
     works: {
       title: 'Proiectele mele',
@@ -516,6 +558,18 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           'Работаем ежедневно 9:00–21:00',
           '−20% на первый заказ',
           'Онлайн-запись 24/7',
+        ],
+      },
+      cards: {
+        title: 'Карточки услуг',
+        description:
+          'Карточки для услуг, способов оплаты или доставки. При наведении, а на телефоне при удержании, карточка темнеет, а иконка наклоняется.',
+        label: 'Примеры услуг',
+        items: [
+          { title: 'Доставка', text: 'В день заказа по городу' },
+          { title: 'Рассрочка', text: 'От 3 до 12 месяцев' },
+          { title: 'Оплата картой', text: 'Visa, Mastercard, Apple Pay' },
+          { title: 'Поддержка', text: 'Ежедневно, 9:00–21:00' },
         ],
       },
     },

@@ -1,0 +1,23 @@
+<ul class="cards" [attr.aria-label]="label()">
+  @for (item of items(); track $index; let index = $index) {
+    <li
+      class="card"
+      [class.card--active]="pressed() === index"
+      (pointerdown)="press($event, index)"
+      (pointerup)="release()"
+      (pointercancel)="release()"
+      (pointerleave)="release()"
+      (contextmenu)="$event.preventDefault()"
+    >
+      <span class="card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path [attr.d]="icons[index % icons.length]" />
+        </svg>
+      </span>
+      <span class="card__body">
+        <span class="card__title">{{ item.title }}</span>
+        <span class="card__text">{{ item.text }}</span>
+      </span>
+    </li>
+  }
+</ul>
