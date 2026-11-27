@@ -1,0 +1,17 @@
+<div class="marquee">
+  <div class="marquee__viewport">
+    <div class="marquee__track">
+      <ul class="marquee__group" [attr.aria-label]="label()">
+        @for (item of items(); track $index) {
+          <li class="marquee__item">{{ item }}</li>
+        }
+      </ul>
+      <!-- A second copy makes the loop seamless; screen readers only get the first one. -->
+      <ul class="marquee__group marquee__group--copy" aria-hidden="true">
+        @for (item of items(); track $index) {
+          <li class="marquee__item">{{ item }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

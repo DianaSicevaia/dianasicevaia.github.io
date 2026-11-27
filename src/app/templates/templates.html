@@ -1,0 +1,17 @@
+@let t = i18n.t().templates;
+<section class="templates" aria-labelledby="templates-title">
+  <div class="container">
+    <h2 class="section-title" id="templates-title" appReveal>{{ t.title }}</h2>
+    <p class="templates__intro" appReveal>{{ t.intro }}</p>
+
+    <ul class="templates__list">
+      <li class="template" appReveal>
+        <div class="template__info">
+          <h3 class="template__title">{{ t.marquee.title }}</h3>
+          <p class="template__description">{{ t.marquee.description }}</p>
+        </div>
+        <app-marquee class="template__demo" [items]="t.marquee.items" [label]="t.marquee.label" />
+      </li>
+    </ul>
+  </div>
+</section>

@@ -23,6 +23,11 @@ export interface Translations {
     webhooks: string;
   };
   services: { title: string; items: readonly { title: string; description: string }[] };
+  templates: {
+    title: string;
+    intro: string;
+    marquee: { title: string; description: string; label: string; items: readonly string[] };
+  };
   works: {
     title: string;
     demo: string;
@@ -109,6 +114,24 @@ export const TRANSLATIONS: Record<Language, Translations> = {
             'On a no-code platform with custom code, from gathering requirements to final revisions.',
         },
       ],
+    },
+    templates: {
+      title: 'Templates',
+      intro:
+        'Examples of ready-made blocks you might want on your own website. Each one adapts to your content, colors and fonts.',
+      marquee: {
+        title: 'Marquee',
+        description:
+          'A scrolling strip for announcements, special offers or key advantages. It catches the eye while taking up very little space.',
+        label: 'Sample announcements',
+        items: [
+          'Free city delivery',
+          'New collection is here',
+          'Open daily 9:00–21:00',
+          '−20% on your first order',
+          'Online booking 24/7',
+        ],
+      },
     },
     works: {
       title: 'My work',
@@ -219,6 +242,24 @@ export const TRANSLATIONS: Record<Language, Translations> = {
             'На no-code-платформі з кастомним кодом: від збору вимог до фінальних правок.',
         },
       ],
+    },
+    templates: {
+      title: 'Шаблони',
+      intro:
+        'Приклади готових блоків, які можуть знадобитися на вашому сайті. Кожен підлаштовується під ваш контент, кольори та шрифти.',
+      marquee: {
+        title: 'Бігучий рядок',
+        description:
+          'Стрічка для оголошень, акцій або ключових переваг. Привертає увагу й майже не займає місця.',
+        label: 'Приклади оголошень',
+        items: [
+          'Безкоштовна доставка містом',
+          'Нова колекція вже тут',
+          'Працюємо щодня 9:00–21:00',
+          '−20% на перше замовлення',
+          'Онлайн-запис 24/7',
+        ],
+      },
     },
     works: {
       title: 'Мої роботи',
@@ -331,6 +372,24 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         },
       ],
     },
+    templates: {
+      title: 'Șabloane',
+      intro:
+        'Exemple de blocuri gata făcute pe care le-ai putea dori pe site-ul tău. Fiecare se adaptează la conținutul, culorile și fonturile tale.',
+      marquee: {
+        title: 'Bandă derulantă',
+        description:
+          'O bandă pentru anunțuri, oferte sau avantaje cheie. Atrage atenția și ocupă foarte puțin spațiu.',
+        label: 'Exemple de anunțuri',
+        items: [
+          'Livrare gratuită în oraș',
+          'Noua colecție a sosit',
+          'Deschis zilnic 9:00–21:00',
+          '−20% la prima comandă',
+          'Programare online 24/7',
+        ],
+      },
+    },
     works: {
       title: 'Proiectele mele',
       demo: 'Vezi demo',
@@ -441,6 +500,24 @@ export const TRANSLATIONS: Record<Language, Translations> = {
             'На no-code-платформе с кастомным кодом: от сбора требований до финальных правок.',
         },
       ],
+    },
+    templates: {
+      title: 'Шаблоны',
+      intro:
+        'Примеры готовых блоков, которые могут пригодиться на вашем сайте. Каждый подстраивается под ваш контент, цвета и шрифты.',
+      marquee: {
+        title: 'Бегущая строка',
+        description:
+          'Лента для объявлений, акций или ключевых преимуществ. Привлекает внимание и почти не занимает места.',
+        label: 'Примеры объявлений',
+        items: [
+          'Бесплатная доставка по городу',
+          'Новая коллекция уже здесь',
+          'Работаем ежедневно 9:00–21:00',
+          '−20% на первый заказ',
+          'Онлайн-запись 24/7',
+        ],
+      },
     },
     works: {
       title: 'Мои работы',
