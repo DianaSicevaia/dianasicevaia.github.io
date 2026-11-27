@@ -1,4 +1,4 @@
-const COLORS = ['#6d3bd6', '#8f5cf0', '#e58bc0', '#f5b14c', '#4fc4b0'];
+export const COLORS = ['#6d3bd6', '#8f5cf0', '#e58bc0', '#f5b14c', '#4fc4b0'];
 const EYE_COLOR = '#f3efe6';
 const PUPIL_COLOR = '#15140f';
 const INNER_EAR_COLOR = 'rgb(243 239 230 / 40%)';

@@ -19,6 +19,13 @@
         </div>
         <app-service-cards class="template__demo" [items]="t.cards.items" [label]="t.cards.label" />
       </li>
+      <li class="template" appReveal>
+        <div class="template__info">
+          <h3 class="template__title">{{ t.trail.title }}</h3>
+          <p class="template__description">{{ t.trail.description }}</p>
+        </div>
+        <app-flower-trail class="template__demo" [hint]="t.trail.hint" />
+      </li>
     </ul>
   </div>
 </section>
