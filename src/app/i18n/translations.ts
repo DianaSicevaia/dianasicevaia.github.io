@@ -33,6 +33,7 @@ export interface Translations {
       label: string;
       items: readonly { title: string; text: string }[];
     };
+    trail: { title: string; description: string; hint: string };
   };
   works: {
     title: string;
@@ -149,6 +150,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           { title: 'Card payment', text: 'Visa, Mastercard, Apple Pay' },
           { title: 'Support', text: 'Every day, 9:00–21:00' },
         ],
+      },
+      trail: {
+        title: 'Cursor trail',
+        description:
+          'An interactive background: the cursor turns into a flower and leaves a trail of blossoms that fade away. The pattern can be anything: shapes, symbols, your logo.',
+        hint: 'Move the cursor here or swipe sideways',
       },
     },
     works: {
@@ -289,6 +296,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           { title: 'Оплата карткою', text: 'Visa, Mastercard, Apple Pay' },
           { title: 'Підтримка', text: 'Щодня, 9:00–21:00' },
         ],
+      },
+      trail: {
+        title: 'Слід від курсора',
+        description:
+          'Інтерактивний фон: курсор стає квіткою й лишає за собою слід із квітів, що поступово зникають. Візерунок може бути будь-яким: фігури, символи, ваш логотип.',
+        hint: 'Проведіть тут курсором або пальцем убік',
       },
     },
     works: {
@@ -431,6 +444,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           { title: 'Suport', text: 'Zilnic, 9:00–21:00' },
         ],
       },
+      trail: {
+        title: 'Urma cursorului',
+        description:
+          'Un fundal interactiv: cursorul devine o floare și lasă în urmă flori care dispar treptat. Modelul poate fi oricare: forme, simboluri, logo-ul tău.',
+        hint: 'Mișcă cursorul aici sau glisează lateral',
+      },
     },
     works: {
       title: 'Proiectele mele',
@@ -571,6 +590,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
           { title: 'Оплата картой', text: 'Visa, Mastercard, Apple Pay' },
           { title: 'Поддержка', text: 'Ежедневно, 9:00–21:00' },
         ],
+      },
+      trail: {
+        title: 'След от курсора',
+        description:
+          'Интерактивный фон: курсор превращается в цветок и оставляет за собой след из цветов, которые постепенно исчезают. Узор может быть любым: фигуры, символы, ваш логотип.',
+        hint: 'Проведите здесь курсором или пальцем в сторону',
       },
     },
     works: {
